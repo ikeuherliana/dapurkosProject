@@ -14,7 +14,6 @@
         <div class="logo">
                 <img src="./assets-1/images/cp-white2.png" alt="dapurkos" width=200px; height="80px"> 
         </div>
-        </form>
         <form action="search" method="post" class="search-box">
             <input type="text" placeholder="Mau makan apa hari ini...">
             <button id="search-btn" type="submit"><i class="fas fa-search"></i></button>
@@ -89,7 +88,12 @@
             <p>Buncis, Tempe, Cabai Merah</p>
             <a href="./resep8.html" class="recipe-button">Lihat Resep</a>
           </div>
-          <div class="swiper-slide">Slide 9</div>
+          <div class="swiper-slide">
+            <img src="./assets-1/images/resep9.png" width="190px" height="200px">
+            <h2>Penne Cheese Pasta</h2>
+            <p>Penne Pasta, Keju, Sosis</p>
+            <a href="./resep9.html" class="recipe-button">Lihat Resep</a>
+          </div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
@@ -101,8 +105,8 @@
             <img src="./assets-1/images/cp-white2.png" alt="dapurkos" width=200px; height="80px"> 
         </div>
             <div class="logo-medsos">
-                <img src="./assets-1/images/instagram.png" alt="Instagram" width="60px" height="60px">
-                <img src="./assets-1/images/twitter.png" alt="Twitter" width="60px" height="60px">
+                <a href="https://www.instagram.com/dapurkos.id"><img src="./assets-1/images/instagram.png" alt="Instagram" width="60px" height="60px"></a>
+                <a href="https://twitter.com/DapurkosI36813?t=ekE_EO3BJtfQLChJYfm06A&s=08"><img src="./assets-1/images/twitter.png" alt="Twitter" width="60px" height="60px"></a>
                 <img src="./assets-1/images/facebook.png" alt="Facebook" width="60px" height="60px">
             </div>
         </div>
@@ -117,8 +121,8 @@
         freeMode: true,
         cssMode: true,
         navigation: {
-          nextE1: ".swiper-button-next",
-          prevE1: ".swiper-button-prev",
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
           clickable: true,
         },
         pagination: {
@@ -126,8 +130,10 @@
           clickable: true,
         },
         mousewheel: true,
-        Keyboard: true,
+        keyboard: true, // Perhatikan juga bahwa ini seharusnya "keyboard", bukan "Keyboard"
       });
     </script>
+
+
 </body>
 </html>
