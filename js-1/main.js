@@ -15,4 +15,57 @@ document.addEventListener('click', function(event) {
     menu.style.display = "none";
     hamburger.classList.remove("active");
   }
+
+//step 1: get DOM
+let nextDom = document.getElementById('next');
+let prevDom = document.getElementById('prev');
+
+let carouselDom = document.querySelector('.carousel');
+let SliderDom = carouselDom.querySelector('.carousel .list');
+
+nextDom.onclick = function(){
+    showSlider('next');    
+}
+
+prevDom.onclick = function(){
+    showSlider('prev');    
+}
+
+let runNextAuto = setTimeout(() => {
+    next.click();
+}, 15000)
+function showSlider(type){
+    let  SliderItemsDom = SliderDom.querySelectorAll('.carousel .list .item');
+    
+    if(type === 'next'){
+        SliderDom.appendChild(SliderItemsDom[0]);
+        carouselDom.classList.add('next');
+        // window.location.href = thumbnailItemsDom[1].querySelector('a').getAttribute('href');
+    }else{
+        SliderDom.prepend(SliderItemsDom[SliderItemsDom.length - 1]);
+        carouselDom.classList.add('prev');
+        // window.location.href = thumbnailItemsDom[thumbnailItemsDom.length - 2].querySelector('a').getAttribute('href');
+    }
+
+        setTimeout(() => {
+        carouselDom.classList.remove('next');
+        carouselDom.classList.remove('prev');
+    }, 1000);
+
+    clearTimeout(runNextAuto);
+    runNextAuto = setTimeout(() => {
+        next.click();
+    }, 15000)
+}
+    // clearTimeout(runTimeOut);
+    // runTimeOut = setTimeout(() => {
+    //     carouselDom.classList.remove('next');
+    //     carouselDom.classList.remove('prev');
+    // }, timeRunning);
+
+//     clearTimeout(runNextAuto);
+//     runNextAuto = setTimeout(() => {
+//         next.click();
+//     }, timeAutoNext)
+// }
 });
