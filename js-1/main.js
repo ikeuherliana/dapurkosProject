@@ -14,8 +14,9 @@ function toggleMenu() {
     if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
       menu.style.display = "none";
       hamburger.classList.remove("active");
+
     }
-  
+
   //step 1: get DOM
   let nextDom = document.getElementById('next');
   let prevDom = document.getElementById('prev');
