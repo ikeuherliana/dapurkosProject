@@ -455,7 +455,63 @@ padding-top: 0;
   text-align: center;
 }
 
+.hide {
+  display: none;
+}
 .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  opacity: 1;
+  background-color: #5F1419;
+  margin: 50px;
+  padding: 20px;
+  width: 200px;
+  height: 370px;
+  border-radius: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  display:flex ;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 1; /* Setel opacity ke 1 agar elemen terlihat saat ditampilkan */
+}
+.swiper-slide.hide {
+  opacity: 0; /* Setel opacity ke 0 saat elemen disembunyikan */
+  pointer-events: none; /* Tambahkan agar elemen yang disembunyikan tidak dapat diinteraksi */
+  height: 0; /* Atur tinggi elemen menjadi 0 saat disembunyikan */
+  margin: 0; 
+  transition: opacity 0.5s ease; /* Hilangkan margin saat elemen disembunyikan */
+}
+.swiper-slide:hover {
+  transition-duration: 0.5s;
+  transform: scale(1.1);
+}
+
+.swiper-slide h2{
+  font-size: 25px;
+  font-family: Bold;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 5px;
+}
+
+.swiper-slide p{
+  font-size: 15px;
+  font-family: Regular;
+  color: #BCB3B3;
+  flex-grow: 1;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 60px;
+}
+
+
+/* .swiper {
   width: 100%;
   height: 100%;
 }
@@ -497,7 +553,7 @@ padding-top: 0;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 60px;
-}
+} */
 
 .recipe-button {
   position: absolute;
@@ -552,6 +608,7 @@ ul {
   padding: 15px 32px;
   font-size: 16px;
   border-radius: 12px;
+  font-family: Regular;
 }
 
 li {
@@ -564,4 +621,36 @@ ol {
   color: black ;
   margin-top: 5px;
   margin-bottom: 10px;
+  font-family: Regular;
+}
+
+.artikel {
+  margin : 100px;
+}
+
+#artikel {
+  color: #5F1419;
+  width: 900px;
+  padding-top: 100px;
+  text-align: center;
+margin-left: 140px;
+font-size: 40px;
+}
+
+#imgartikel{
+  margin-top: 10px;
+  width: 900px;
+  height: 350px;
+  align-items: center;
+  margin-left: 90px;
+  border-radius: 14px;
+}
+
+#imgartikel:hover{
+  transition-duration: 0.5s;
+  transform: scale(1.1);
+}
+
+#article{
+  padding-top: 10px;
 }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-rKk/RU4LR0rMD+J2XWoZHcGbeEew9UZdt7fN/knNq5clR5JNQFUnP7uU6tHdmjPW" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/swiper@6.5.8/swiper-bundle.min.js"></script>
     <script src="./js-1/main.js"></script>
-    <link rel="stylesheet" href="./css-1/style.css">
+    <link rel="stylesheet" href="./css-1/style.css" href="./landing.html" href="./recipe-page.html">
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
                 <img src="./assets-1/images/cp-white2.png" alt="dapurkos" width="200px" height="70px"> 
         </div>
         <form action="search" method="post" class="search-box">
-            <input type="text" placeholder="Mau makan apa hari ini...">
+            <input id="searchInput" type="text" placeholder="Mau makan apa hari ini...">
             <button id="search-btn" type="submit"><i class="fas fa-search"></i></button>
         </form>
         <div class="hamburger" onclick="toggleMenu()">
@@ -29,6 +29,7 @@
             <a href="#landing">Beranda</a>
             <a href="#tentangkami">Tentang Kami</a>
             <a href="./recipe-page.html">Resep</a>
+            <a href="#carousel">Tips</a>
           </nav>
           
       </header>
@@ -47,6 +48,7 @@
     </div>
 
     <div class="carousel">
+    <section id="carousel">
         <!-- list item -->
         <div class="list">
             <div class="item">
@@ -65,7 +67,7 @@
                     <div class="title">Cara Tepat Mencuci Teflon Supaya Awet</div>
                     <p>Teflon yang dilengkapi lapisan anti lengket menjadi salah satu <br> alat memasak yang wajib ada di dapur. Berikut tips supaya teflon tahan lama.</p>
                     <div class="buttons">
-                        <button><a href="./artikel1.html">Lihat Artikel</a></button>
+                        <button><a href="./artikel2.html">Lihat Artikel</a></button>
                     </div>
                 </div>
             </div>
@@ -75,7 +77,7 @@
                     <div class="title">Tips Membuat Kuning Telur Rebus Setengah Matang</div>
                     <p>Telur merupakan makanan kaya akan protein yang menjadi favorit <br> banyak orang. Telur setengah matang menjadi salah satu cara <br> penyajian yang  sedang tren saat ini.</p>
                     <div class="buttons">
-                        <button><a href="./artikel1.html">Lihat Artikel</a></button>
+                        <button><a href="./artikel3.html">Lihat Artikel</a></button>
                     </div>
                 </div>
             </div>
@@ -116,6 +118,7 @@
         </div>
         <!-- time running -->
         <div class="time"></div>
+    </section>
     </div>
  
 
@@ -157,5 +160,87 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        // Ambil elemen input pencarian
+        var searchInput = document.getElementById('searchInput');
+    
+        // Ambil semua elemen resep
+        var recipes = document.querySelectorAll('.item');
+    
+        function performSearch() {
+            var searchTerm = searchInput.value.trim().toLowerCase();
+            var found = false;
+    
+            recipes.forEach(function (recipe, index) {
+                var recipeTitle = recipe.querySelector('.title').textContent.toLowerCase();
+                var recipeIngredients = recipe.querySelector('p').textContent.toLowerCase();
+    
+                // Cek apakah judul atau bahan mengandung kata kunci pencarian
+                if (recipeTitle.includes(searchTerm) || recipeIngredients.includes(searchTerm)) {
+                    recipe.classList.remove('hide');
+                    // Tambahkan logika geser slide di sini jika menggunakan swiper
+                    found = true;
+                } else {
+                    recipe.classList.add('hide');
+                }
+            });
+    
+            // Tambahkan logika geser slider kembali ke slide pertama jika tidak ada resep yang cocok
+            if (!found) {
+                // Geser slider kembali ke slide pertama di sini jika menggunakan swiper
+            }
+        }
+    
+        searchInput.addEventListener('input', function () {
+            performSearch();
+        });
+    
+        searchInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                performSearch();
+            }
+        });
+    </script>
+    <!-- <script>
+        function performSearch() {
+            var searchTerm = searchInput.value.trim().toLowerCase();
+            var found = false;
+
+            recipes.forEach(function (recipe, index) {
+                var recipeTitle = recipe.querySelector('h2').textContent.toLowerCase();
+                var recipeIngredients = recipe.querySelector('p').textContent.toLowerCase();
+
+                // Cek apakah judul atau bahan mengandung kata kunci pencarian
+                if (recipeTitle.includes(searchTerm) || recipeIngredients.includes(searchTerm)) {
+                    recipe.classList.remove('hide');
+                    // Geser slide ke slide pertama jika resep cocok dan belum di slide pertama
+                    if (index !== 0 && !found) {
+                        swiper.slideTo(index);
+                    }
+                    found = true;
+                } else {
+                    recipe.classList.add('hide');
+                }
+            });
+
+            // Geser slider kembali ke slide pertama jika tidak ada resep yang cocok
+            if (!found) {
+                swiper.slideTo(0);
+            }
+        }
+
+        searchInput.addEventListener('input', function () {
+            performSearch();
+        });
+
+        searchInput.addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Mencegah form dari pengiriman default
+                performSearch();
+            }
+        });
+    </script> -->
 </body>
 </html>
